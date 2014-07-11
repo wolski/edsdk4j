@@ -71,16 +71,16 @@ import edsdk.utils.CanonUtils;
  * Please note that you _can_ use the sdk directly or also
  * use this class to get the basic communication running, and then
  * communicate with the edsdk directly.
- * 
+ *
  * Either way, one of the most important things to remember is that
  * edsdk is not multithreaded so your vm might crash if you just call functions
  * from the library.
  * Instead I suggest you use the static method SLR.invoke( Runnable r );
  * or the method canonCamera.invoke( CanonCommand cmd );
- * 
+ *
  * The latter is basically the same, but allows you to easily get a return
  * integer value, like:
- * 
+ *
  * <pre>
  * int result = SLR.invoke(
  *     new CanonCommand() {
@@ -90,18 +90,18 @@ import edsdk.utils.CanonUtils;
  *     }
  * );
  * </pre>
- * 
+ *
  * This class also automatically processes and forwards all windows-style
  * messages.
  * This is required to forward camera events into the edsdk. Currently there is
  * no way to disable this if it conflicts with your software.
- * 
+ *
  * Copyright © 2014 Hansi Raber <super@superduper.org>, Ananta Palani
  * <anantapalani@gmail.com>
  * This work is free. You can redistribute it and/or modify it under the
  * terms of the Do What The Fuck You Want To Public License, Version 2,
  * as published by Sam Hocevar. See the COPYING file for more details.
- * 
+ *
  * @author hansi
  * @author Ananta Palani
  */
@@ -148,9 +148,9 @@ public class CanonCamera implements EdsObjectEventHandler {
         }
 
         if ( arch != null && arch.endsWith( "64" ) ) {
-            edsdkDllLoc = "EDSDK_64/EDSDK.dll";
+            edsdkDllLoc = "e:/CanonSDK/EDSDK_64/EDSDK.dll";
         } else {
-            edsdkDllLoc = "EDSDK/Dll/EDSDK.dll";
+            edsdkDllLoc = "e:/CanonSDK/EDSDK/Dll/EDSDK.dll";
         }
         System.err.println( "Java Architecture: " + arch +
                             " - Using EDSDK DLL: " + CanonCamera.edsdkDllLoc );
@@ -163,7 +163,7 @@ public class CanonCamera implements EdsObjectEventHandler {
     private static final User32 lib = User32.INSTANCE;
     //private static final HMODULE hMod = Kernel32.INSTANCE.GetModuleHandle("");
 
-    // The queue of commands that need to be run. 
+    // The queue of commands that need to be run.
     private static ConcurrentLinkedQueue<CanonCommand<?>> queue = new ConcurrentLinkedQueue<CanonCommand<?>>();
 
     // Object Event Handlers
@@ -171,15 +171,15 @@ public class CanonCamera implements EdsObjectEventHandler {
 
     private static Thread dispatcherThread;
     static {
-        // Tells the app to throw an error instead of crashing entirely. 
-        // Native.setProtected( true ); 
-        // We actually want our apps to crash, because something very dramatic 
-        // is going on when the user receives this kind of crash message from 
-        // the os and it puts the developer under pressure to fix the issue. 
-        // If we enable Native.setProtected the app might just freeze, 
-        // which is imho more annoying than a proper crash. 
+        // Tells the app to throw an error instead of crashing entirely.
+        // Native.setProtected( true );
+        // We actually want our apps to crash, because something very dramatic
+        // is going on when the user receives this kind of crash message from
+        // the os and it puts the developer under pressure to fix the issue.
+        // If we enable Native.setProtected the app might just freeze,
+        // which is imho more annoying than a proper crash.
         // Anyways, if you want the exception-throwing-instead-crashing behaviour
-        // just call the above code as early as possible in your main method. 
+        // just call the above code as early as possible in your main method.
 
         // Start the dispatch thread
         CanonCamera.dispatcherThread = new Thread() {
@@ -191,7 +191,7 @@ public class CanonCamera implements EdsObjectEventHandler {
         };
         CanonCamera.dispatcherThread.start();
 
-        // people are sloppy! 
+        // people are sloppy!
         // so we add a shutdown hook to close camera connections
         Runtime.getRuntime().addShutdownHook( new Thread() {
 
@@ -284,7 +284,7 @@ public class CanonCamera implements EdsObjectEventHandler {
 
     /**
      * It's better to use the specific getX/setX method instead
-     * 
+     *
      * @param property
      * @param value
      * @return
@@ -296,7 +296,7 @@ public class CanonCamera implements EdsObjectEventHandler {
 
     /**
      * It's better to use the specific getX/setX async method instead
-     * 
+     *
      * @param property
      * @param value
      * @return
@@ -437,14 +437,14 @@ public class CanonCamera implements EdsObjectEventHandler {
         CanonCommand<?> cmd = null;
 
         while ( !Thread.currentThread().isInterrupted() ) {
-            // do we have a new message? 
+            // do we have a new message?
             final boolean hasMessage = CanonCamera.lib.PeekMessage( msg, null, 0, 0, 1 ); // peek and remove
             if ( hasMessage ) {
                 CanonCamera.lib.TranslateMessage( msg );
                 CanonCamera.lib.DispatchMessage( msg );
             }
 
-            // is there a command we're currently working on? 
+            // is there a command we're currently working on?
             if ( cmd != null ) {
                 if ( cmd.finished() ) {
                     //System.out.println( "Command finished" );
@@ -454,7 +454,7 @@ public class CanonCamera implements EdsObjectEventHandler {
                 }
             }
 
-            // are we free to do new work, and is there even new work to be done? 
+            // are we free to do new work, and is there even new work to be done?
             if ( !CanonCamera.queue.isEmpty() && cmd == null ) {
                 cmd = CanonCamera.queue.poll();
                 /*
@@ -506,14 +506,14 @@ public class CanonCamera implements EdsObjectEventHandler {
 
         private boolean connect() {
             EdsError err = EdsError.EDS_ERR_OK;
-            
+
             final EdsCameraListRef.ByReference listRef = new EdsCameraListRef.ByReference();
             final EdsCameraRef.ByReference cameraRef = new EdsCameraRef.ByReference();
-            
+
             try {
                 err = CanonUtils.toEdsError( CanonCamera.EDSDK.EdsGetCameraList( listRef ) );
                 if ( err != EdsError.EDS_ERR_OK ) {
-                    throw new Exception("Camera failed to initialize");
+                    throw new Exception( "Camera failed to initialize" );
                 }
 
                 final NativeLongByReference outRef = new NativeLongByReference();
@@ -542,12 +542,14 @@ public class CanonCamera implements EdsObjectEventHandler {
                 if ( err != EdsError.EDS_ERR_OK ) {
                     throw new Exception( "Couldn't open camera session" );
                 }
-                
+
                 edsCamera = cameraRef.getValue();
-            } catch (Exception e) {
+            }
+            catch ( Exception e ) {
                 CanonUtils.release( cameraRef );
                 setError( err, e.getMessage() );
-            } finally {
+            }
+            finally {
                 CanonUtils.release( listRef );
             }
 
@@ -608,7 +610,7 @@ public class CanonCamera implements EdsObjectEventHandler {
      * shutter is not actually open), so use
      * {@link CanonCamera#isLiveViewActive()} to be certain live view is active
      * and transmitting images
-     * 
+     *
      * @return true if live view is allowed be active
      */
     public Boolean isLiveViewEnabled() {
@@ -626,7 +628,7 @@ public class CanonCamera implements EdsObjectEventHandler {
      * live view images, so even if {@link CanonCamera#isLiveViewEnabled()}
      * returns true, this may return false, but can be much more certain that
      * live view is actually on
-     * 
+     *
      * @return true if live view currently active
      */
     public Boolean isLiveViewActive() {

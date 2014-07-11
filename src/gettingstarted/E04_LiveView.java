@@ -14,16 +14,16 @@ import edsdk.api.CanonCamera;
 
 /**
  * A live view example
- * 
+ *
  * Copyright © 2014 Hansi Raber <super@superduper.org>, Ananta Palani
  * <anantapalani@gmail.com>
  * This work is free. You can redistribute it and/or modify it under the
  * terms of the Do What The Fuck You Want To Public License, Version 2,
  * as published by Sam Hocevar. See the COPYING file for more details.
- * 
+ *
  * @author hansi
  * @author Ananta Palani
- * 
+ *
  */
 public class E04_LiveView {
 
@@ -35,6 +35,7 @@ public class E04_LiveView {
                 final JLabel label = new JLabel();
                 frame.getContentPane().add( label, BorderLayout.CENTER );
                 frame.setDefaultCloseOperation( WindowConstants.DO_NOTHING_ON_CLOSE );
+
                 frame.addWindowListener( new WindowAdapter() {
 
                     @Override
@@ -47,8 +48,22 @@ public class E04_LiveView {
                 } );
                 frame.setVisible( true );
 
+                int count = 0;
+
+                long start = System.currentTimeMillis();
+
                 while ( true ) {
-                    Thread.sleep( 50 );
+
+                    ++count;
+                    if ( count % 30 == 0 ) {
+                        long dist = System.currentTimeMillis() - start;
+                        double fram = ( count / (double) dist ) * 1000.;
+                        System.out.println( fram );
+                        start = System.currentTimeMillis();
+                        count = 0;
+                    }
+
+                    //Thread.sleep( 50 );
                     final BufferedImage image = camera.downloadLiveView();
                     if ( image != null ) {
                         label.setIcon( new ImageIcon( image ) );
