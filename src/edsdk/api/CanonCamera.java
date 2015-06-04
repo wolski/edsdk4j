@@ -25,17 +25,10 @@ import edsdk.api.commands.LiveViewCommand;
 import edsdk.api.commands.SetPropertyCommand;
 import edsdk.api.commands.ShootCommand;
 import edsdk.bindings.EdSdkLibrary;
-import edsdk.bindings.EdSdkLibrary.EdsBaseRef;
 import edsdk.bindings.EdSdkLibrary.EdsCameraListRef;
 import edsdk.bindings.EdSdkLibrary.EdsCameraRef;
 import edsdk.bindings.EdSdkLibrary.EdsObjectEventHandler;
-import edsdk.bindings.EdsFocusInfo;
-import edsdk.bindings.EdsPictureStyleDesc;
-import edsdk.bindings.EdsPoint;
-import edsdk.bindings.EdsPropertyDesc;
-import edsdk.bindings.EdsRect;
-import edsdk.bindings.EdsSize;
-import edsdk.bindings.EdsTime;
+import edsdk.bindings.tagEdsPropertyDesc;
 import edsdk.utils.CanonConstants.DescriptiveEnum;
 import edsdk.utils.CanonConstants.EdsAEMode;
 import edsdk.utils.CanonConstants.EdsAFMode;
@@ -350,7 +343,7 @@ public class CanonCamera implements EdsObjectEventHandler {
         return execute( new GetPropertyCommand.Type( property ) );
     }
 
-    public EdsPropertyDesc getPropertyDesc( final EdsPropertyID property ) {
+    public tagEdsPropertyDesc getPropertyDesc( final EdsPropertyID property ) {
         return executeNow( new GetPropertyDescCommand( property ) );
     }
 
@@ -405,8 +398,8 @@ public class CanonCamera implements EdsObjectEventHandler {
     }
 
     @Override
-    public NativeLong apply( final NativeLong inEvent, final EdsBaseRef inRef,
-                             final Pointer inContext ) {
+    public NativeLong apply( final NativeLong inEvent, final Pointer inRef,
+                             EdSdkLibrary.EdsVoid inContext ) {
         /*
          * final EdsObjectEvent event = EdsObjectEvent.enumOfValue(
          * inEvent.intValue() );

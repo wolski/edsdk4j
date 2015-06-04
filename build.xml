@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="edsdk4j" default="jar" basedir=".">
-
   <property name="version"          value="snapshot" />
-  
   <property name="src"              value="src"/>
   <property name="lib"              value="lib"/>
   <property name="build"            value="build"/>
   <property name="dist"             value="dist"/>
-  <property name="edsdk.dir"        value="${basedir}/EDSDK"/>
-  <property name="edsdk64.dir"      value="${basedir}/EDSDK_64"/>
+  <property name="edsdk.dir"        value="d:\ims_archive/C++/SDK/ED-SDK/Ver215/EDSDK"/>
+  <property name="edsdk64.dir"      value="d:\ims_archive/C++/SDK/ED-SDK/Ver215/EDSDK_64"/>
   <property name="distver"          value="${dist}/edsdk4j-${version}"/>
   <!-- javaver >= 1.6 -->
-  <property name="javaver"          value="1.6"/>
+  <property name="javaver"          value="1.7"/>
   <!-- point javart.path to the rt.jar file that corresponds to javaver
        or a warning about 'bootstrap class path not set in conjunction
        with -source' will occur during compile -->
@@ -21,10 +19,11 @@
   
   <property environment="env"/>
   
-  <property name="jnaerator.lib"    value="${lib}/jnaerator*.jar"/>
+  <property name="jnaerator.lib"    value="${lib}/jnaerator-0.12-shaded.jar"/>
   
   <fileset id="jna.libs" dir="${lib}">
     <include name="jna*.jar"/>
+	 <include name="platform*.jar"/>
   </fileset>
   
   <fileset id="imgscalr.libs" dir="${lib}">
