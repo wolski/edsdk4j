@@ -1,5 +1,8 @@
 package edsdk.bindings;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
@@ -27,12 +30,7 @@ public class EdsCapacity extends Structure {
 
     public EdsCapacity() {
         super();
-        initFieldOrder();
-    }
-
-    protected void initFieldOrder() {
-        setFieldOrder( new String[] { "numberOfFreeClusters", "bytesPerSector",
-                                     "reset" } );
+        getFieldOrder();
     }
 
     /**
@@ -46,7 +44,7 @@ public class EdsCapacity extends Structure {
         this.numberOfFreeClusters = numberOfFreeClusters;
         this.bytesPerSector = bytesPerSector;
         this.reset = reset;
-        initFieldOrder();
+        getFieldOrder();
     }
 
     public EdsCapacity( final Pointer pointer ) {
@@ -55,10 +53,17 @@ public class EdsCapacity extends Structure {
     }
 
     public static class ByReference extends EdsCapacity implements Structure.ByReference {
-
-    };
+        //generated
+    }
 
     public static class ByValue extends EdsCapacity implements Structure.ByValue {
+        //generated
+    }
 
-    };
+    @Override
+    protected List getFieldOrder() {
+        return Arrays.asList( new String[] { "numberOfFreeClusters",
+                                            "bytesPerSector", "reset" } );
+
+    }
 }

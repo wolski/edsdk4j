@@ -48,16 +48,16 @@ import edsdk.utils.CanonConstants.EdsWhiteBalance;
 import edsdk.utils.CanonUtils;
 
 /**
- * 
+ *
  * Copyright © 2014 Hansi Raber <super@superduper.org>, Ananta Palani
  * <anantapalani@gmail.com>
  * This work is free. You can redistribute it and/or modify it under the
  * terms of the Do What The Fuck You Want To Public License, Version 2,
  * as published by Sam Hocevar. See the COPYING file for more details.
- * 
+ *
  * @author hansi
  * @author Ananta Palani
- * 
+ *
  */
 public class Test {
 
@@ -445,6 +445,8 @@ public class Test {
                     case kEdsPropID_Evf_AFMode:
                         currentProperty = EdsEvfAFMode.enumOfValue( currentPropertyValue );
                         break;
+                    default:
+                        break;
                 }
             }
             catch ( final IllegalArgumentException e ) {
@@ -616,7 +618,7 @@ public class Test {
             } else if ( int[].class.isAssignableFrom( klass ) ) {
                 final int[] array = (int[]) value;
                 String s = "";
-                if ( array != null && array.length > 0 ) {
+                if ( array.length > 0 ) {
                     for ( final int i : array ) {
                         s += ", " + i;
                     }

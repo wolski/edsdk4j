@@ -1,5 +1,8 @@
 package edsdk.bindings;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
@@ -25,11 +28,13 @@ public class EdsSize extends Structure {
 
     public EdsSize() {
         super();
-        initFieldOrder();
+        getFieldOrder();
     }
 
-    protected void initFieldOrder() {
-        setFieldOrder( new String[] { "width", "height" } );
+    @Override
+    protected List getFieldOrder() {
+        return Arrays.asList( new String[] { "width", "height" } );
+
     }
 
     /**
@@ -40,7 +45,7 @@ public class EdsSize extends Structure {
         super();
         this.width = width;
         this.height = height;
-        initFieldOrder();
+        getFieldOrder();
     }
 
     public EdsSize( final Pointer pointer ) {
@@ -49,10 +54,10 @@ public class EdsSize extends Structure {
     }
 
     public static class ByReference extends EdsSize implements Structure.ByReference {
-
-    };
+        //generated
+    }
 
     public static class ByValue extends EdsSize implements Structure.ByValue {
-
-    };
+        //generated
+    }
 }

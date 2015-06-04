@@ -94,7 +94,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsDataType_FocusInfo = 101;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:163</i>
         public static final int kEdsDataType_PictureStyleDesc = 102;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -106,7 +106,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsCameraCommand_EvfAf_OFF = 0;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:323</i>
         public static final int kEdsCameraCommand_EvfAf_ON = 1;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -124,7 +124,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsCameraCommand_ShutterButton_Halfway_NonAF = 65537;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:332</i>
         public static final int kEdsCameraCommand_ShutterButton_Completely_NonAF = 65539;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -144,7 +144,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsEvfDriveLens_Far2 = 32770;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:536</i>
         public static final int kEdsEvfDriveLens_Far3 = 32771;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -156,7 +156,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsEvfDepthOfFieldPreview_OFF = 0;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:546</i>
         public static final int kEdsEvfDepthOfFieldPreview_ON = 1;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -170,7 +170,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsSeek_Begin = 1;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:557</i>
         public static final int kEdsSeek_End = 2;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -186,7 +186,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsAccess_ReadWrite = 2;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:569</i>
         public static final int kEdsAccess_Error = -1;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -204,7 +204,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsFileCreateDisposition_OpenAlways = 3;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:582</i>
         public static final int kEdsFileCreateDisposition_TruncateExsisting = 4;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -222,7 +222,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsImageType_RAW = 4;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:597</i>
         public static final int kEdsImageType_CR2 = 6;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -248,7 +248,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsImageSize_Small3 = 16;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:614</i>
         public static final int kEdsImageSize_Unknown = -1;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -266,7 +266,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsCompressQuality_SuperFine = 5;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:627</i>
         public static final int kEdsCompressQuality_Unknown = -1;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -575,7 +575,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int EdsImageQuality_SRSJ = 40108560;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:707</i>
         public static final int EdsImageQuality_Unknown = -1;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -695,7 +695,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsImageQualityForLegacy_LR2SJ = 3080735;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:737</i>
         public static final int kEdsImageQualityForLegacy_Unknown = -1;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -713,7 +713,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsImageSrc_RAWThumbnail = 3;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:750</i>
         public static final int kEdsImageSrc_RAWFullView = 4;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -735,7 +735,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsTargetImageType_RGB16 = 10;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:766</i>
         public static final int kEdsTargetImageType_DIB = 11;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -749,7 +749,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsProgressOption_Done = 1;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:777</i>
         public static final int kEdsProgressOption_Periodically = 2;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -767,7 +767,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsFileAttribute_System = 4;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:791</i>
         public static final int kEdsFileAttribute_Archive = 32;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -793,7 +793,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsBatteryLevel2_BCLevel = 0;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:809</i>
         public static final int kEdsBatteryLevel2_AC = -1;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -808,7 +808,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:819</i>
         public static final int kEdsSaveTo_Both = EdSdkLibrary.EdsSaveTo.kEdsSaveTo_Camera |
                                                   EdSdkLibrary.EdsSaveTo.kEdsSaveTo_Host;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -824,7 +824,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsStorageType_SD = 2;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:831</i>
         public static final int kEdsStorageType_HD = 4;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -872,7 +872,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsWhiteBalance_Click = -1;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:859</i>
         public static final int kEdsWhiteBalance_Pasted = -2;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -884,7 +884,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsPhotoEffect_Off = 0;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:869</i>
         public static final int kEdsPhotoEffect_Monochrome = 5;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -908,7 +908,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsColorMatrix_6 = 6;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:885</i>
         public static final int kEdsColorMatrix_7 = 7;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -926,7 +926,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsFilterEffect_Red = 3;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:898</i>
         public static final int kEdsFilterEffect_Green = 4;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -944,7 +944,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsTonigEffect_Purple = 3;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:911</i>
         public static final int kEdsTonigEffect_Green = 4;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -958,7 +958,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsColorSpace_AdobeRGB = 2;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:922</i>
         public static final int kEdsColorSpace_Unknown = -1;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -992,7 +992,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsPictureStyle_PC2 = 66;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:943</i>
         public static final int kEdsPictureStyle_PC3 = 67;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -1006,7 +1006,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsTransferOption_ByRelease = 2;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:954</i>
         public static final int kEdsTransferOption_ToDesktop = 256;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -1054,7 +1054,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsAEMode_PhotoInMovie = 21;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:982</i>
         public static final int kEdsAEMode_Unknown = -1;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -1072,7 +1072,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsBracket_FEB = 8;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:995</i>
         public static final int kEdsBracket_Unknown = -1;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -1084,7 +1084,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsEvfOutputDevice_TFT = 1;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:1005</i>
         public static final int kEdsEvfOutputDevice_PC = 2;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -1098,7 +1098,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsEvfZoom_x5 = 5;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:1015</i>
         public static final int kEdsEvfZoom_x10 = 10;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -1112,7 +1112,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int Evf_AFMode_Live = 1;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:1025</i>
         public static final int Evf_AFMode_LiveFace = 2;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -1134,7 +1134,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsStroboModeExternalManual = 5;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:1039</i>
         public static final int kEdsStroboModeManual = 6;
-    };
+    }
 
     /**
      * <i>native declaration : EDSDK\Header\EDSDKTypes.h</i><br>
@@ -1146,7 +1146,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
         public static final int kEdsETTL2ModeEvaluative = 0;
         /// <i>native declaration : EDSDK\Header\EDSDKTypes.h:1048</i>
         public static final int kEdsETTL2ModeAverage = 1;
-    };
+    }
 
     /// <i>native declaration : EDSDK\Header\EDSDKErrors.h</i>
     public static final int EDS_ERR_STREAM_SEEK_ERROR = 165;
@@ -1693,7 +1693,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
 
         NativeLong apply( NativeLong inPercent, Pointer inContext,
                           IntByReference outCancel );
-    };
+    }
 
     /**
      * ------------------------------------------------------------------------
@@ -1706,7 +1706,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
     public interface EdsCameraAddedHandler extends StdCallLibrary.StdCallCallback {
 
         NativeLong apply( Pointer inContext );
-    };
+    }
 
     /**
      * ------------------------------------------------------------------------
@@ -1720,7 +1720,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
 
         NativeLong apply( NativeLong inEvent, NativeLong inPropertyID,
                           NativeLong inParam, Pointer inContext );
-    };
+    }
 
     /**
      * ------------------------------------------------------------------------
@@ -1734,7 +1734,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
 
         NativeLong apply( NativeLong inEvent, EdSdkLibrary.EdsBaseRef inRef,
                           Pointer inContext );
-    };
+    }
 
     /**
      * ------------------------------------------------------------------------
@@ -1748,7 +1748,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
 
         NativeLong apply( NativeLong inEvent, NativeLong inEventData,
                           Pointer inContext );
-    };
+    }
 
     /**
      * ------------------------------------------------------------------------
@@ -1759,7 +1759,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
 
         NativeLong apply( Pointer inContext, NativeLong inReadSize,
                           Pointer outBuffer, NativeLongByReference outReadSize );
-    };
+    }
 
     /// <i>native declaration : EDSDK\Header\EDSDKErrors.h</i>
     /// <i>native declaration : EDSDK\Header\EDSDKErrors.h</i>
@@ -1767,7 +1767,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
 
         NativeLong apply( Pointer inContext, NativeLong inWriteSize,
                           Pointer inBuffer, NativeLongByReference outWrittenSize );
-    };
+    }
 
     /// <i>native declaration : EDSDK\Header\EDSDKErrors.h</i>
     /// <i>native declaration : EDSDK\Header\EDSDKErrors.h</i>
@@ -1775,21 +1775,21 @@ public interface EdSdkLibrary extends StdCallLibrary {
 
         NativeLong apply( Pointer inContext, NativeLong inSeekOffset,
                           int inSeekOrigin );
-    };
+    }
 
     /// <i>native declaration : EDSDK\Header\EDSDKErrors.h</i>
     /// <i>native declaration : EDSDK\Header\EDSDKErrors.h</i>
     public interface EdsTellStream extends StdCallLibrary.StdCallCallback {
 
         NativeLong apply( Pointer inContext, NativeLongByReference outPosition );
-    };
+    }
 
     /// <i>native declaration : EDSDK\Header\EDSDKErrors.h</i>
     /// <i>native declaration : EDSDK\Header\EDSDKErrors.h</i>
     public interface EdsGetStreamLength extends StdCallLibrary.StdCallCallback {
 
         NativeLong apply( Pointer inContext, NativeLongByReference outLength );
-    };
+    }
 
     /**
      * ------------------------------------------------------------------------
@@ -1989,7 +1989,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
      * <code>__attribute__((dllimport)) EdsError EdsGetPropertySize(EdsBaseRef, EdsPropertyID, EdsInt32, EdsDataType*, EdsUInt32*)</code>
      * <br>
      * <i>native declaration : EDSDK\Header\EDSDK.h:212</i><br>
-     * 
+     *
      * @deprecated use the safer methods
      *             {@link #EdsGetPropertySize(edsdk.bindings.EdSdkLibrary.EdsBaseRef, com.sun.jna.NativeLong, com.sun.jna.NativeLong, java.nio.IntBuffer, com.sun.jna.ptr.NativeLongByReference)}
      *             and
@@ -2555,7 +2555,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
      * <code>__attribute__((dllimport)) EdsError EdsGetAttribute(EdsDirectoryItemRef, EdsFileAttributes*)</code>
      * <br>
      * <i>native declaration : EDSDK\Header\EDSDK.h:641</i><br>
-     * 
+     *
      * @deprecated use the safer methods
      *             {@link #EdsGetAttribute(edsdk.bindings.EdSdkLibrary.EdsDirectoryItemRef, java.nio.IntBuffer)}
      *             and
@@ -2649,7 +2649,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
      * <code>__attribute__((dllimport)) EdsError EdsCreateFileStream(const EdsChar*, EdsFileCreateDisposition, EdsAccess, EdsStreamRef*)</code>
      * <br>
      * <i>native declaration : EDSDK\Header\EDSDK.h:696</i><br>
-     * 
+     *
      * @deprecated use the safer methods
      *             {@link #EdsCreateFileStream(byte[], int, int, edsdk.bindings.EdSdkLibrary.EdsStreamRef)}
      *             and
@@ -2748,7 +2748,7 @@ public interface EdSdkLibrary extends StdCallLibrary {
      * <code>__attribute__((dllimport)) EdsError EdsCreateFileStreamEx(const WCHAR*, EdsFileCreateDisposition, EdsAccess, EdsStreamRef*)</code>
      * <br>
      * <i>native declaration : EDSDK\Header\EDSDK.h:742</i><br>
-     * 
+     *
      * @deprecated use the safer methods
      *             {@link #EdsCreateFileStreamEx(short[], int, int, edsdk.bindings.EdSdkLibrary.EdsStreamRef)}
      *             and

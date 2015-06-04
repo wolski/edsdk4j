@@ -1,5 +1,8 @@
 package edsdk.bindings;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
@@ -25,11 +28,13 @@ public class EdsPoint extends Structure {
 
     public EdsPoint() {
         super();
-        initFieldOrder();
+        getFieldOrder();
     }
 
-    protected void initFieldOrder() {
-        setFieldOrder( new String[] { "x", "y" } );
+    @Override
+    protected List getFieldOrder() {
+        return Arrays.asList( new String[] { "x", "y" } );
+
     }
 
     /**
@@ -40,7 +45,7 @@ public class EdsPoint extends Structure {
         super();
         this.x = x;
         this.y = y;
-        initFieldOrder();
+        getFieldOrder();
     }
 
     public EdsPoint( final Pointer pointer ) {
@@ -49,10 +54,10 @@ public class EdsPoint extends Structure {
     }
 
     public static class ByReference extends EdsPoint implements Structure.ByReference {
-
-    };
+        //generated
+    }
 
     public static class ByValue extends EdsPoint implements Structure.ByValue {
-
-    };
+        //generated
+    }
 }

@@ -79,11 +79,11 @@ public class PhotoAndLive {
             final class ButtonListener implements ActionListener {
 
                 @Override
-                public void actionPerformed( final ActionEvent e ) {
-                    final AbstractButton button = (AbstractButton) e.getSource();
-                    final String oldText = button.getText();
-                    button.setText( "working..." );
-                    button.setEnabled( false );
+                public void actionPerformed( final ActionEvent actionEvent ) {
+                    final AbstractButton button2 = (AbstractButton) actionEvent.getSource();
+                    final String oldText = button2.getText();
+                    button2.setText( "working..." );
+                    button2.setEnabled( false );
                     new SwingWorker<File[], Object>() {
 
                         @Override
@@ -95,8 +95,8 @@ public class PhotoAndLive {
                         protected void done() {
                             try {
                                 SinglePhoto.updateImage( frame, label, get() );
-                                button.setText( oldText );
-                                button.setEnabled( true );
+                                button2.setText( oldText );
+                                button2.setEnabled( true );
                             }
                             catch ( final Exception e ) {
                                 // TODO Auto-generated catch block

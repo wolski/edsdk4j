@@ -35,16 +35,16 @@ import edsdk.utils.CanonUtils;
 
 /**
  * Sets a property on the camera.
- * 
+ *
  * Copyright © 2014 Hansi Raber <super@superduper.org>, Ananta Palani
  * <anantapalani@gmail.com>
  * This work is free. You can redistribute it and/or modify it under the
  * terms of the Do What The Fuck You Want To Public License, Version 2,
  * as published by Sam Hocevar. See the COPYING file for more details.
- * 
+ *
  * @author hansi
  * @author Ananta Palani
- * 
+ *
  */
 //TODO: These are defined in EdSdkLibrary but are not described in the API
 //Docs...
@@ -253,6 +253,7 @@ public abstract class SetPropertyCommand<T> extends CanonCommand<Boolean> {
 
     public static class Data extends SetPropertyCommand<Long> {
 
+        @SuppressWarnings( "unused" )
         public Data( final EdsPropertyID property, final long value,
                      final boolean isLiveViewCommand ) {
             super( property, value, true );
@@ -266,6 +267,7 @@ public abstract class SetPropertyCommand<T> extends CanonCommand<Boolean> {
 
     public static class EnumData extends SetPropertyCommand<DescriptiveEnum<? extends Number>> {
 
+        @SuppressWarnings( "unused" )
         public EnumData( final EdsPropertyID property,
                          final DescriptiveEnum<? extends Number> value,
                          final boolean isLiveViewCommand ) {
@@ -449,7 +451,7 @@ public abstract class SetPropertyCommand<T> extends CanonCommand<Boolean> {
 
     /**
      * AutoFocusMode = AFMode
-     * 
+     *
      */
     //TODO: API indicates this is a read only property - test if this works
     public static class AutoFocusMode extends SetPropertyCommand<EdsAFMode> {
@@ -462,7 +464,7 @@ public abstract class SetPropertyCommand<T> extends CanonCommand<Boolean> {
 
     /**
      * ApertureValue = Av
-     * 
+     *
      */
     public static class ApertureValue extends SetPropertyCommand<EdsAv> {
 
@@ -474,7 +476,7 @@ public abstract class SetPropertyCommand<T> extends CanonCommand<Boolean> {
 
     /**
      * ShutterSpeed = Tv
-     * 
+     *
      */
     public static class ShutterSpeed extends SetPropertyCommand<EdsTv> {
 
@@ -494,22 +496,22 @@ public abstract class SetPropertyCommand<T> extends CanonCommand<Boolean> {
 
     /**
      * ShootingMode = AEMode
-     * 
+     *
      * According to the EDSDK API docs this should only work on cameras without
      * dials. However, it seems to work on the EOS 550D and may work on other
      * models, but note that it takes about half a second to change the mode
      * on the EOS 550D, so you may want to do a loop that waits until the mode
      * has changed by testing whether the current shooting mode is equal to
      * the target shooting mode.
-     * 
+     *
      * Oddly, if you remove the USB cable without turning the camera off, the
      * shooting mode stated on the camera display will be the same as that set
      * by this function and may be different from that set on the dial. It is
      * not reset by unplugging the USB cable.
-     * 
+     *
      * Switching the dial to another value will change the current mode
      * regardless of whether the USB cable is plugged in or not.
-     * 
+     *
      */
     public static class ShootingMode extends SetPropertyCommand<EdsAEMode> {
 
@@ -553,7 +555,7 @@ public abstract class SetPropertyCommand<T> extends CanonCommand<Boolean> {
 
     /**
      * LiveViewWhiteBalance = Evf_WhiteBalance
-     * 
+     *
      */
     public static class LiveViewWhiteBalance extends SetPropertyCommand<EdsWhiteBalance> {
 
@@ -565,7 +567,7 @@ public abstract class SetPropertyCommand<T> extends CanonCommand<Boolean> {
 
     /**
      * LiveViewAutoFocusMode = Evf_AFMode
-     * 
+     *
      */
     public static class LiveViewAutoFocusMode extends SetPropertyCommand<EdsEvfAFMode> {
 

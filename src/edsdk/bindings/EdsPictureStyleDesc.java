@@ -1,5 +1,8 @@
 package edsdk.bindings;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
@@ -33,13 +36,15 @@ public class EdsPictureStyleDesc extends Structure {
 
     public EdsPictureStyleDesc() {
         super();
-        initFieldOrder();
+        getFieldOrder();
     }
 
-    protected void initFieldOrder() {
-        setFieldOrder( new String[] { "contrast", "sharpness", "saturation",
-                                     "colorTone", "filterEffect",
-                                     "toningEffect" } );
+    @Override
+    protected List getFieldOrder() {
+        return Arrays.asList( new String[] { "contrast", "sharpness",
+                                            "saturation", "colorTone",
+                                            "filterEffect", "toningEffect" } );
+
     }
 
     /**
@@ -63,7 +68,7 @@ public class EdsPictureStyleDesc extends Structure {
         this.colorTone = colorTone;
         this.filterEffect = filterEffect;
         this.toningEffect = toningEffect;
-        initFieldOrder();
+        getFieldOrder();
     }
 
     public EdsPictureStyleDesc( final Pointer pointer ) {
@@ -72,10 +77,10 @@ public class EdsPictureStyleDesc extends Structure {
     }
 
     public static class ByReference extends EdsPictureStyleDesc implements Structure.ByReference {
-
-    };
+        //generated
+    }
 
     public static class ByValue extends EdsPictureStyleDesc implements Structure.ByValue {
-
-    };
+        //generated
+    }
 }

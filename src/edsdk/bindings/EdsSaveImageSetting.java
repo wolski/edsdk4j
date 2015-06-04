@@ -1,5 +1,8 @@
 package edsdk.bindings;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
@@ -29,12 +32,14 @@ public class EdsSaveImageSetting extends Structure {
 
     public EdsSaveImageSetting() {
         super();
-        initFieldOrder();
+        getFieldOrder();
     }
 
-    protected void initFieldOrder() {
-        setFieldOrder( new String[] { "JPEGQuality", "iccProfileStream",
-                                     "reserved" } );
+    @Override
+    protected List getFieldOrder() {
+        return Arrays.asList( new String[] { "JPEGQuality", "iccProfileStream",
+                                            "reserved" } );
+
     }
 
     /**
@@ -49,7 +54,7 @@ public class EdsSaveImageSetting extends Structure {
         this.JPEGQuality = JPEGQuality;
         this.iccProfileStream = iccProfileStream;
         this.reserved = reserved;
-        initFieldOrder();
+        getFieldOrder();
     }
 
     public EdsSaveImageSetting( final Pointer pointer ) {
@@ -58,10 +63,10 @@ public class EdsSaveImageSetting extends Structure {
     }
 
     public static class ByReference extends EdsSaveImageSetting implements Structure.ByReference {
-
-    };
+        //generated
+    }
 
     public static class ByValue extends EdsSaveImageSetting implements Structure.ByValue {
-
-    };
+        //generated
+    }
 }

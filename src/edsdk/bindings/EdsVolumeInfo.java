@@ -1,5 +1,8 @@
 package edsdk.bindings;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
@@ -34,12 +37,15 @@ public class EdsVolumeInfo extends Structure {
 
     public EdsVolumeInfo() {
         super();
-        initFieldOrder();
+        getFieldOrder();
     }
 
-    protected void initFieldOrder() {
-        setFieldOrder( new String[] { "storageType", "access", "maxCapacity",
-                                     "freeSpaceInBytes", "szVolumeLabel" } );
+    @Override
+    protected List getFieldOrder() {
+        return Arrays.asList( new String[] { "storageType", "access",
+                                            "maxCapacity", "freeSpaceInBytes",
+                                            "szVolumeLabel" } );
+
     }
 
     /**
@@ -62,7 +68,7 @@ public class EdsVolumeInfo extends Structure {
             throw new IllegalArgumentException( "Wrong array size !" );
         }
         this.szVolumeLabel = szVolumeLabel;
-        initFieldOrder();
+        getFieldOrder();
     }
 
     public EdsVolumeInfo( final Pointer pointer ) {
@@ -71,10 +77,10 @@ public class EdsVolumeInfo extends Structure {
     }
 
     public static class ByReference extends EdsVolumeInfo implements Structure.ByReference {
-
-    };
+        //generated
+    }
 
     public static class ByValue extends EdsVolumeInfo implements Structure.ByValue {
-
-    };
+        //generated
+    }
 }

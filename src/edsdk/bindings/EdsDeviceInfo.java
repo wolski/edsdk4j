@@ -1,5 +1,8 @@
 package edsdk.bindings;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
@@ -29,12 +32,15 @@ public class EdsDeviceInfo extends Structure {
 
     public EdsDeviceInfo() {
         super();
-        initFieldOrder();
+        getFieldOrder();
     }
 
-    protected void initFieldOrder() {
-        setFieldOrder( new String[] { "szPortName", "szDeviceDescription",
-                                     "deviceSubType", "reserved" } );
+    @Override
+    protected List getFieldOrder() {
+        return Arrays.asList( new String[] { "szPortName",
+                                            "szDeviceDescription",
+                                            "deviceSubType", "reserved" } );
+
     }
 
     /**
@@ -58,7 +64,7 @@ public class EdsDeviceInfo extends Structure {
         this.szDeviceDescription = szDeviceDescription;
         this.deviceSubType = deviceSubType;
         this.reserved = reserved;
-        initFieldOrder();
+        getFieldOrder();
     }
 
     public EdsDeviceInfo( final Pointer pointer ) {
@@ -67,10 +73,10 @@ public class EdsDeviceInfo extends Structure {
     }
 
     public static class ByReference extends EdsDeviceInfo implements Structure.ByReference {
-
-    };
+        //generated
+    }
 
     public static class ByValue extends EdsDeviceInfo implements Structure.ByValue {
-
-    };
+        //generated
+    }
 }

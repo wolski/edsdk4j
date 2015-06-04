@@ -1,5 +1,8 @@
 package edsdk.bindings;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
 
@@ -47,12 +50,14 @@ public class EdsIStream extends Structure {
 
     public EdsIStream() {
         super();
-        initFieldOrder();
+        getFieldOrder();
     }
 
-    protected void initFieldOrder() {
-        setFieldOrder( new String[] { "context", "read", "write", "seek",
-                                     "tell", "getLength" } );
+    @Override
+    protected List getFieldOrder() {
+        return Arrays.asList( new String[] { "context", "read", "write",
+                                            "seek", "tell", "getLength" } );
+
     }
 
     /**
@@ -78,7 +83,7 @@ public class EdsIStream extends Structure {
         this.seek = seek;
         this.tell = tell;
         this.getLength = getLength;
-        initFieldOrder();
+        getFieldOrder();
     }
 
     public EdsIStream( final Pointer pointer ) {
@@ -87,10 +92,10 @@ public class EdsIStream extends Structure {
     }
 
     public static class ByReference extends EdsIStream implements Structure.ByReference {
-
-    };
+        //generated
+    }
 
     public static class ByValue extends EdsIStream implements Structure.ByValue {
-
-    };
+        //generated
+    }
 }

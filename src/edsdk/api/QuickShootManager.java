@@ -15,16 +15,16 @@ import edsdk.utils.CanonConstants.EdsObjectEvent;
 import edsdk.utils.CanonUtils;
 
 /**
- * 
+ *
  * Copyright © 2014 Hansi Raber <super@superduper.org>, Ananta Palani
  * <anantapalani@gmail.com>
  * This work is free. You can redistribute it and/or modify it under the
  * terms of the Do What The Fuck You Want To Public License, Version 2,
  * as published by Sam Hocevar. See the COPYING file for more details.
- * 
+ *
  * @author hansi
  * @author Ananta Palani
- * 
+ *
  */
 public class QuickShootManager implements EdsObjectEventHandler {
 
@@ -35,7 +35,7 @@ public class QuickShootManager implements EdsObjectEventHandler {
     //TODO: bring up to date with ShootCommand.run
     public QuickShootManager( final CanonCamera camera ) {
         this.camera = camera;
-        // disable liveview... 
+        // disable liveview...
         camera.execute( new CanonCommand<Void>() {
 
             @Override
@@ -55,7 +55,7 @@ public class QuickShootManager implements EdsObjectEventHandler {
     }
 
     public CanonCommand<ArrayList<File>> downloadAll() {
-        // wait until we have enough files ... 
+        // wait until we have enough files ...
         while ( refs.size() < wanted ) {
             try {
                 Thread.sleep( 1 );
@@ -83,7 +83,7 @@ public class QuickShootManager implements EdsObjectEventHandler {
         public void run() {
             EdsError result = EdsError.EDS_ERR_UNIMPLEMENTED;
             while ( result != EdsError.EDS_ERR_OK ) {
-                //				oldEvfMode = CanonUtils.isLiveViewEnabled( camera.getEdsCamera(), true ); 
+                //				oldEvfMode = CanonUtils.isLiveViewEnabled( camera.getEdsCamera(), true );
                 //				if( oldEvfMode ) CanonUtils.endLiveView( camera.getEdsCamera() );
 
                 result = sendCommand( EdsCameraCommand.kEdsCameraCommand_TakePicture, 0 );
@@ -113,6 +113,7 @@ public class QuickShootManager implements EdsObjectEventHandler {
     }
 
     //TODO: bring up to date with ShootCommand.apply
+    @SuppressWarnings( "unused" )
     public EdsError apply( final EdsObjectEvent inEvent,
                            final EdsDirectoryItemRef inRef,
                            final Pointer inContext ) {

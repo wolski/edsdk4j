@@ -40,16 +40,16 @@ import edsdk.utils.CanonUtils;
 
 /**
  * Gets a property from the camera.
- * 
+ *
  * Copyright © 2014 Hansi Raber <super@superduper.org>, Ananta Palani
  * <anantapalani@gmail.com>
  * This work is free. You can redistribute it and/or modify it under the
  * terms of the Do What The Fuck You Want To Public License, Version 2,
  * as published by Sam Hocevar. See the COPYING file for more details.
- * 
+ *
  * @author hansi
  * @author Ananta Palani
- * 
+ *
  */
 //TODO: These are defined in EdSdkLibrary but are not described in the API
 //Docs:
@@ -283,6 +283,7 @@ public abstract class GetPropertyCommand<T> extends CanonCommand<T> {
 
     public static class Data extends GetPropertyCommand<Long> {
 
+        @SuppressWarnings( "unused" )
         public Data( final EdsPropertyID property,
                      final boolean isLiveViewCommand ) {
             super( property, true );
@@ -599,7 +600,7 @@ public abstract class GetPropertyCommand<T> extends CanonCommand<T> {
 
     /**
      * AutoFocusMode = AFMode
-     * 
+     *
      */
     public static class AutoFocusMode extends GetPropertyCommand<EdsAFMode> {
 
@@ -611,7 +612,7 @@ public abstract class GetPropertyCommand<T> extends CanonCommand<T> {
 
     /**
      * ApertureValue = Av
-     * 
+     *
      */
     public static class ApertureValue extends GetPropertyCommand<EdsAv> {
 
@@ -623,7 +624,7 @@ public abstract class GetPropertyCommand<T> extends CanonCommand<T> {
 
     /**
      * ShutterSpeed = Tv
-     * 
+     *
      */
     public static class ShutterSpeed extends GetPropertyCommand<EdsTv> {
 
@@ -643,7 +644,7 @@ public abstract class GetPropertyCommand<T> extends CanonCommand<T> {
 
     /**
      * ShootingMode = AEMode
-     * 
+     *
      */
     public static class ShootingMode extends GetPropertyCommand<EdsAEMode> {
 
@@ -687,7 +688,7 @@ public abstract class GetPropertyCommand<T> extends CanonCommand<T> {
 
     /**
      * LiveViewWhiteBalance = Evf_WhiteBalance
-     * 
+     *
      */
     public static class LiveViewWhiteBalance extends GetPropertyCommand<EdsWhiteBalance> {
 
@@ -699,7 +700,7 @@ public abstract class GetPropertyCommand<T> extends CanonCommand<T> {
 
     /**
      * LiveViewAutoFocusMode = Evf_AFMode
-     * 
+     *
      */
     public static class LiveViewAutoFocusMode extends GetPropertyCommand<EdsEvfAFMode> {
 
@@ -712,7 +713,7 @@ public abstract class GetPropertyCommand<T> extends CanonCommand<T> {
     /**
      * although EDSDK API v2.13.2 lists this, it seems not to work any more, so
      * use the LiveViewHistogramY/R/G/B methods instead
-     * 
+     *
      */
     public static class LiveViewHistogram extends GetPropertyCommand<int[]> {
 

@@ -1,5 +1,8 @@
 package edsdk.bindings;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
@@ -25,11 +28,13 @@ public class EdsRational extends Structure {
 
     public EdsRational() {
         super();
-        initFieldOrder();
+        getFieldOrder();
     }
 
-    protected void initFieldOrder() {
-        setFieldOrder( new String[] { "numerator", "denominator" } );
+    @Override
+    protected List getFieldOrder() {
+        return Arrays.asList( new String[] { "numerator", "denominator" } );
+
     }
 
     /**
@@ -40,7 +45,7 @@ public class EdsRational extends Structure {
         super();
         this.numerator = numerator;
         this.denominator = denominator;
-        initFieldOrder();
+        getFieldOrder();
     }
 
     public EdsRational( final Pointer pointer ) {
@@ -49,10 +54,10 @@ public class EdsRational extends Structure {
     }
 
     public static class ByReference extends EdsRational implements Structure.ByReference {
-
-    };
+        //generated
+    }
 
     public static class ByValue extends EdsRational implements Structure.ByValue {
-
-    };
+        //generated
+    }
 }

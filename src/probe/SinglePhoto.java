@@ -26,16 +26,16 @@ import edsdk.api.CanonCamera;
 import edsdk.utils.CanonConstants.EdsSaveTo;
 
 /**
- * 
+ *
  * Copyright © 2014 Hansi Raber <super@superduper.org>, Ananta Palani
  * <anantapalani@gmail.com>
  * This work is free. You can redistribute it and/or modify it under the
  * terms of the Do What The Fuck You Want To Public License, Version 2,
  * as published by Sam Hocevar. See the COPYING file for more details.
- * 
+ *
  * @author hansi
  * @author Ananta Palani
- * 
+ *
  */
 public class SinglePhoto {
 
@@ -79,11 +79,11 @@ public class SinglePhoto {
             final class ButtonListener implements ActionListener {
 
                 @Override
-                public void actionPerformed( final ActionEvent e ) {
-                    final AbstractButton button = (AbstractButton) e.getSource();
-                    final String oldText = button.getText();
-                    button.setText( "working..." );
-                    button.setEnabled( false );
+                public void actionPerformed( final ActionEvent actionEvent ) {
+                    final AbstractButton button2 = (AbstractButton) actionEvent.getSource();
+                    final String oldText = button2.getText();
+                    button2.setText( "working..." );
+                    button2.setEnabled( false );
                     new SwingWorker<File[], Object>() {
 
                         @Override
@@ -95,12 +95,12 @@ public class SinglePhoto {
                         protected void done() {
                             try {
                                 SinglePhoto.updateImage( frame, label, get() );
-                                button.setText( oldText );
-                                button.setEnabled( true );
+                                button2.setText( oldText );
+                                button2.setEnabled( true );
                             }
-                            catch ( final Exception e ) {
+                            catch ( final Exception ex ) {
                                 // TODO Auto-generated catch block
-                                e.printStackTrace();
+                                ex.printStackTrace();
                             }
                         }
                     }.execute();

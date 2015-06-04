@@ -1,5 +1,8 @@
 package edsdk.bindings;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
@@ -29,12 +32,14 @@ public class EdsFocusInfo extends Structure {
 
     public EdsFocusInfo() {
         super();
-        initFieldOrder();
+        getFieldOrder();
     }
 
-    protected void initFieldOrder() {
-        setFieldOrder( new String[] { "imageRect", "pointNumber", "focusPoint",
-                                     "executeMode" } );
+    @Override
+    protected List getFieldOrder() {
+        return Arrays.asList( new String[] { "imageRect", "pointNumber",
+                                            "focusPoint", "executeMode" } );
+
     }
 
     /**
@@ -54,7 +59,7 @@ public class EdsFocusInfo extends Structure {
         }
         this.focusPoint = focusPoint;
         this.executeMode = executeMode;
-        initFieldOrder();
+        getFieldOrder();
     }
 
     public EdsFocusInfo( final Pointer pointer ) {
@@ -63,10 +68,10 @@ public class EdsFocusInfo extends Structure {
     }
 
     public static class ByReference extends EdsFocusInfo implements Structure.ByReference {
-
-    };
+        //generated
+    }
 
     public static class ByValue extends EdsFocusInfo implements Structure.ByValue {
-
-    };
+        //generated
+    }
 }

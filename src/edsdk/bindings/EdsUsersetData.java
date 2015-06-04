@@ -1,5 +1,8 @@
 package edsdk.bindings;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
@@ -29,11 +32,14 @@ public class EdsUsersetData extends Structure {
 
     public EdsUsersetData() {
         super();
-        initFieldOrder();
+        getFieldOrder();
     }
 
-    protected void initFieldOrder() {
-        setFieldOrder( new String[] { "valid", "dataSize", "szCaption", "data" } );
+    @Override
+    protected List getFieldOrder() {
+        return Arrays.asList( new String[] { "valid", "dataSize", "szCaption",
+                                            "data" } );
+
     }
 
     /**
@@ -55,7 +61,7 @@ public class EdsUsersetData extends Structure {
             throw new IllegalArgumentException( "Wrong array size !" );
         }
         this.data = data;
-        initFieldOrder();
+        getFieldOrder();
     }
 
     public EdsUsersetData( final Pointer pointer ) {
@@ -64,10 +70,10 @@ public class EdsUsersetData extends Structure {
     }
 
     public static class ByReference extends EdsUsersetData implements Structure.ByReference {
-
-    };
+        //generated
+    }
 
     public static class ByValue extends EdsUsersetData implements Structure.ByValue {
-
-    };
+        //generated
+    }
 }

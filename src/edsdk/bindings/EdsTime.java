@@ -1,5 +1,8 @@
 package edsdk.bindings;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
@@ -35,12 +38,14 @@ public class EdsTime extends Structure {
 
     public EdsTime() {
         super();
-        initFieldOrder();
+        getFieldOrder();
     }
 
-    protected void initFieldOrder() {
-        setFieldOrder( new String[] { "year", "month", "day", "hour", "minute",
-                                     "second", "milliseconds" } );
+    @Override
+    protected List getFieldOrder() {
+        return Arrays.asList( new String[] { "year", "month", "day", "hour",
+                                            "minute", "second", "milliseconds" } );
+
     }
 
     /**
@@ -64,7 +69,7 @@ public class EdsTime extends Structure {
         this.minute = minute;
         this.second = second;
         this.milliseconds = milliseconds;
-        initFieldOrder();
+        getFieldOrder();
     }
 
     public EdsTime( final Pointer pointer ) {
@@ -72,7 +77,11 @@ public class EdsTime extends Structure {
         read();
     }
 
-    public static class ByReference extends EdsTime implements Structure.ByReference {};
+    public static class ByReference extends EdsTime implements Structure.ByReference {  //generated
 
-    public static class ByValue extends EdsTime implements Structure.ByValue {};
+    }
+
+    public static class ByValue extends EdsTime implements Structure.ByValue {
+        //generated
+    }
 }

@@ -1,5 +1,8 @@
 package edsdk.bindings;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
@@ -31,12 +34,14 @@ public class EdsFocusPoint extends Structure {
 
     public EdsFocusPoint() {
         super();
-        initFieldOrder();
+        getFieldOrder();
     }
 
-    protected void initFieldOrder() {
-        setFieldOrder( new String[] { "valid", "selected", "justFocus", "rect",
-                                     "reserved" } );
+    @Override
+    protected List getFieldOrder() {
+        return Arrays.asList( new String[] { "valid", "selected", "justFocus",
+                                            "rect", "reserved" } );
+
     }
 
     /**
@@ -55,7 +60,7 @@ public class EdsFocusPoint extends Structure {
         this.justFocus = justFocus;
         this.rect = rect;
         this.reserved = reserved;
-        initFieldOrder();
+        getFieldOrder();
     }
 
     public EdsFocusPoint( final Pointer pointer ) {
@@ -64,10 +69,10 @@ public class EdsFocusPoint extends Structure {
     }
 
     public static class ByReference extends EdsFocusPoint implements Structure.ByReference {
-
-    };
+        //generated
+    }
 
     public static class ByValue extends EdsFocusPoint implements Structure.ByValue {
-
-    };
+        //generated
+    }
 }

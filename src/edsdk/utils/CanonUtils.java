@@ -58,7 +58,7 @@ import edsdk.utils.CanonConstants.EdsWhiteBalance;
  * _All_ the functions in here are not thread safe, so you'll want to
  * encapsulate them in
  * a CanonCommand and then send them to the camera, like so for instance :
- * 
+ *
  * <pre>
  * canonCamera.executeNow( new CanonCommand<Boolean>() {
  *     public void run(){
@@ -66,16 +66,16 @@ import edsdk.utils.CanonConstants.EdsWhiteBalance;
  *     }
  * }
  * </pre>
- * 
+ *
  * Copyright © 2014 Hansi Raber <super@superduper.org>, Ananta Palani
  * <anantapalani@gmail.com>
  * This work is free. You can redistribute it and/or modify it under the
  * terms of the Do What The Fuck You Want To Public License, Version 2,
  * as published by Sam Hocevar. See the COPYING file for more details.
- * 
+ *
  * @author hansi
  * @author Ananta Palani
- * 
+ *
  */
 // TODO: think about having CanonUtils handle state/property changes to handle cases described by CanonUtils.isLiveViewEnabled()
 public class CanonUtils {
@@ -106,7 +106,7 @@ public class CanonUtils {
 
     /**
      * Finds the filename for a directory item
-     * 
+     *
      * @param directoryItem The item you want to download
      * @return Either null, or the filename of the item
      */
@@ -126,7 +126,7 @@ public class CanonUtils {
 
     /**
      * Downloads an image and saves it somewhere.
-     * 
+     *
      * @param directoryItem The item you want to download
      * @param destination A path in the filesystem where you want to save the
      *            file. Can also be null or a directory. In case of null the
@@ -201,9 +201,8 @@ public class CanonUtils {
                 success = true;
             }
 
-            if ( stream != null ) {
-                CanonCamera.EDSDK.EdsRelease( stream.getValue() );
-            }
+            CanonCamera.EDSDK.EdsRelease( stream.getValue() );
+
         }
         catch ( final Exception e ) {
             e.printStackTrace();
@@ -253,7 +252,7 @@ public class CanonUtils {
     /**
      * Only use this if you know that the type of the property you input is
      * compatible with the value you supply.
-     * 
+     *
      * @param ref Camera/image/live view reference
      * @param property Property to get from the camera
      * @param param See EDSDK API
@@ -400,7 +399,7 @@ public class CanonUtils {
     /**
      * Only use this if you know that the type of the property you input is
      * compatible with the return type assignment you expect.
-     * 
+     *
      * @param ref Camera/image/live view reference
      * @param property Property to get from the camera
      * @param param See EDSDK API
@@ -529,7 +528,7 @@ public class CanonUtils {
      * support are listed in the EDSDK documentation, others were obtained by
      * trial-and-error. Note that not all EdsPropertyID values are supported in
      * all camera modes or with all models.
-     * 
+     *
      * @param camera The camera to get the available property settings of
      * @param property
      *            {@link edsdk.utils.CanonConstants.EdsPropertyID#kEdsPropID_DriveMode
@@ -654,7 +653,7 @@ public class CanonUtils {
     }
 
     /**
-     * 
+     *
      * @param ref The camera to get the available property settings of
      * @param property One of the supported EdsPropertyID values
      * @return The EdsPropertyDesc containing the available settings for the
@@ -791,7 +790,7 @@ public class CanonUtils {
      * getLiveViewImageReference()} is queried, the tread will hang because the
      * EDSDK will not return, so call this from a thread-handled environment
      * such as {@link CanonCamera}.
-     * 
+     *
      * @param camera the camera to query
      * @param checkLiveViewActive set {@code true} to check whether the camera
      *            is actively transmitting live view images
@@ -824,7 +823,7 @@ public class CanonUtils {
      * {@link CanonUtils#release(edsdk.bindings.EdSdkLibrary.EdsBaseRef.ByReference...)
      * release()} on the returned array when you are done using it or
      * you will cause a memory leak!
-     * 
+     *
      * @param camera the camera to query
      * @return EdsEvfImageRef.ByReference and EdsStreamRef.ByReference as
      *         indexes 0 and 1 respectively
@@ -860,9 +859,9 @@ public class CanonUtils {
             return null;
         }
 
-        // Now try to follow the guidelines from 
+        // Now try to follow the guidelines from
         // http://tech.groups.yahoo.com/group/CanonSDK/message/1225
-        // instead of what the edsdk example has to offer! 
+        // instead of what the edsdk example has to offer!
 
         // Download live view image data.
         err = CanonUtils.toEdsError( CanonCamera.EDSDK.EdsDownloadEvfImage( camera, imageRef.getValue() ) );
@@ -890,20 +889,20 @@ public class CanonUtils {
 
             //		// Get the incidental data of the image.
             //		NativeLongByReference zoom = new NativeLongByReference( new NativeLong( 0 ) );
-            //		Pointer data = zoom.getPointer(); 
-            //		err = getPropertyData( image.getValue(), EdSdkLibrary.kEdsPropID_Evf_ZoomPosition, 0, NativeLong.SIZE, data ); 
+            //		Pointer data = zoom.getPointer();
+            //		err = getPropertyData( image.getValue(), EdSdkLibrary.kEdsPropID_Evf_ZoomPosition, 0, NativeLong.SIZE, data );
             //		if( err != EdsError.EDS_ERR_OK ){
             //			System.err.println( "Failed to download live view image, zoom value wasn't read (error "+ err.value() + ": "+ err.name() + " - " + err.description() + ")" );
-            //			return null; 
+            //			return null;
             //		}
             //
             //		// Get the focus and zoom border position
             //		EdsPoint point = new EdsPoint();
-            //		data = point.getPointer(); 
+            //		data = point.getPointer();
             //		err = getPropertyData( image.getValue(), EdSdkLibrary.kEdsPropID_Evf_ZoomPosition, 0 , sizeof( point ), data );
             //		if( err != EdsError.EDS_ERR_OK ){
             //			System.err.println( "Failed to download live view image, focus point wasn't read (error "+ err.value() + ": "+ err.name() + " - " + err.description() + ")" );
-            //			return null; 
+            //			return null;
             //		}
 
             final NativeLongByReference length = new NativeLongByReference();

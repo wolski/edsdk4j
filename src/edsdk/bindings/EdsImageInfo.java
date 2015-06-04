@@ -1,5 +1,8 @@
 package edsdk.bindings;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
@@ -35,13 +38,16 @@ public class EdsImageInfo extends Structure {
 
     public EdsImageInfo() {
         super();
-        initFieldOrder();
+        getFieldOrder();
     }
 
-    protected void initFieldOrder() {
-        setFieldOrder( new String[] { "width", "height", "numOfComponents",
-                                     "componentDepth", "effectiveRect",
-                                     "reserved1", "reserved2" } );
+    @Override
+    protected List getFieldOrder() {
+        return Arrays.asList( new String[] { "width", "height",
+                                            "numOfComponents",
+                                            "componentDepth", "effectiveRect",
+                                            "reserved1", "reserved2" } );
+
     }
 
     /**
@@ -66,7 +72,7 @@ public class EdsImageInfo extends Structure {
         this.effectiveRect = effectiveRect;
         this.reserved1 = reserved1;
         this.reserved2 = reserved2;
-        initFieldOrder();
+        getFieldOrder();
     }
 
     public EdsImageInfo( final Pointer pointer ) {
@@ -75,10 +81,10 @@ public class EdsImageInfo extends Structure {
     }
 
     public static class ByReference extends EdsImageInfo implements Structure.ByReference {
-
-    };
+        //generated
+    }
 
     public static class ByValue extends EdsImageInfo implements Structure.ByValue {
-
-    };
+        //generated
+    }
 }

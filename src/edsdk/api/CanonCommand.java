@@ -19,7 +19,7 @@ import edsdk.utils.CanonUtils;
  * The CanonCommand class tries to make your life a whole lot easier when you
  * would like
  * to create new commands for your camera.
- * 
+ *
  * E.g. one default command implemented with this is the take image cycle.
  * This is a lot of work because you need to do all the following:
  * - tell the camera to take an image
@@ -27,16 +27,16 @@ import edsdk.utils.CanonUtils;
  * wasn't loaded
  * - wait for the notification from the camera that the file was stored
  * - transfer the image to the disk
- * 
+ *
  * Copyright © 2014 Hansi Raber <super@superduper.org>, Ananta Palani
  * <anantapalani@gmail.com>
  * This work is free. You can redistribute it and/or modify it under the
  * terms of the Do What The Fuck You Want To Public License, Version 2,
  * as published by Sam Hocevar. See the COPYING file for more details.
- * 
+ *
  * @author hansi
  * @author Ananta Palani
- * 
+ *
  */
 public abstract class CanonCommand<T> implements EdsObjectEventHandler {
 
@@ -53,7 +53,7 @@ public abstract class CanonCommand<T> implements EdsObjectEventHandler {
     /**
      * The camera is set by the dispatch thread automatically just before run is
      * called.
-     * 
+     *
      * @param camera
      */
     public void setCamera( final CanonCamera camera ) {
@@ -78,7 +78,7 @@ public abstract class CanonCommand<T> implements EdsObjectEventHandler {
      * the run method completed. If you attached listens inside run
      * and are waiting for a special event to happen before you're done
      * please call the notYetFinished() at the end of run().
-     * 
+     *
      * This will tell the dispatcher that it should start forwarding event
      * messages again, and also it'll wait with the execution of further
      * commands until your command somehow calls finish() on itself to
@@ -93,7 +93,7 @@ public abstract class CanonCommand<T> implements EdsObjectEventHandler {
      * Only used in combination with notYetFinished.
      * Call this when your command's work is done (e.g. you successfully
      * shot and downloaded an image).
-     * 
+     *
      * @see CanonCommand#notYetFinished()
      */
     public void finish() {
@@ -113,7 +113,7 @@ public abstract class CanonCommand<T> implements EdsObjectEventHandler {
      * Checks if this command finished it's work. Only useful in combination
      * with
      * finish() and notYetFinished().
-     * 
+     *
      * @see CanonCommand#notYetFinished()
      * @return
      */
@@ -123,7 +123,7 @@ public abstract class CanonCommand<T> implements EdsObjectEventHandler {
 
     /**
      * Sends a command to the camera
-     * 
+     *
      * @return
      */
     public EdsError sendCommand( final EdsCameraCommand command,
@@ -133,7 +133,7 @@ public abstract class CanonCommand<T> implements EdsObjectEventHandler {
 
     /**
      * Sends a command to the camera
-     * 
+     *
      * @return
      */
     public EdsError sendCommand( final EdsCameraCommand command,
@@ -143,7 +143,7 @@ public abstract class CanonCommand<T> implements EdsObjectEventHandler {
 
     /**
      * Sends a status command to the camera
-     * 
+     *
      * @return
      */
     public EdsError sendStatusCommand( final EdsCameraStatusCommand command,
@@ -153,7 +153,7 @@ public abstract class CanonCommand<T> implements EdsObjectEventHandler {
 
     /**
      * Sends a status command to the camera
-     * 
+     *
      * @return
      */
     public EdsError sendStatusCommand( final EdsCameraStatusCommand command,
@@ -165,10 +165,10 @@ public abstract class CanonCommand<T> implements EdsObjectEventHandler {
      * This is a default implementation of the invoke method.
      * Just override it if you need to use events, the dispatcher will
      * take care of (un-)registering the listeners for you.
-     * 
+     *
      * It's better to implement the EdsError apply() and use that instead since
      * values are conveniently wrapped as EdsObjectEvents for you
-     * 
+     *
      * Also don't worry about the return value, you can use null or
      * EdsError.EDS_ERR_OK!
      */
@@ -180,9 +180,10 @@ public abstract class CanonCommand<T> implements EdsObjectEventHandler {
 
     /**
      * If you don't need to use events just return EdsError.EDS_ERR_OK
-     * 
+     *
      * The dispatcher will take care of (un-)registering the listeners for you.
      */
+    @SuppressWarnings( "unused" )
     public EdsError apply( final EdsObjectEvent inEvent,
                            final EdsBaseRef inRef, final Pointer inContext ) {
         return EdsError.EDS_ERR_OK;
@@ -190,7 +191,7 @@ public abstract class CanonCommand<T> implements EdsObjectEventHandler {
 
     /**
      * Waits until the command is completed and returns the result.
-     * 
+     *
      * @return
      */
     public T get() {
@@ -207,7 +208,7 @@ public abstract class CanonCommand<T> implements EdsObjectEventHandler {
     /**
      * Waits until the command is completed and returns the result.
      * If the result is not returned in time an interrupted exception is thrown.
-     * 
+     *
      * @throws InterruptedException
      */
     public T get( final long timeout ) throws InterruptedException {
@@ -241,7 +242,7 @@ public abstract class CanonCommand<T> implements EdsObjectEventHandler {
 
     /**
      * An alias for get()
-     * 
+     *
      * @return
      */
     public T now() {
@@ -250,7 +251,7 @@ public abstract class CanonCommand<T> implements EdsObjectEventHandler {
 
     /**
      * Add a done listener
-     * 
+     *
      * @param listener
      */
     public void whenDone( final CanonCommandListener<T> listener ) {

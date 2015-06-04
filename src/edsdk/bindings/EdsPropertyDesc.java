@@ -1,5 +1,8 @@
 package edsdk.bindings;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
@@ -29,12 +32,14 @@ public class EdsPropertyDesc extends Structure {
 
     public EdsPropertyDesc() {
         super();
-        initFieldOrder();
+        getFieldOrder();
     }
 
-    protected void initFieldOrder() {
-        setFieldOrder( new String[] { "form", "access", "numElements",
-                                     "propDesc" } );
+    @Override
+    protected List getFieldOrder() {
+        return Arrays.asList( new String[] { "form", "access", "numElements",
+                                            "propDesc" } );
+
     }
 
     /**
@@ -54,7 +59,7 @@ public class EdsPropertyDesc extends Structure {
             throw new IllegalArgumentException( "Wrong array size !" );
         }
         this.propDesc = propDesc;
-        initFieldOrder();
+        getFieldOrder();
     }
 
     public EdsPropertyDesc( final Pointer pointer ) {
@@ -63,10 +68,10 @@ public class EdsPropertyDesc extends Structure {
     }
 
     public static class ByReference extends EdsPropertyDesc implements Structure.ByReference {
-
-    };
+        //generated
+    }
 
     public static class ByValue extends EdsPropertyDesc implements Structure.ByValue {
-
-    };
+        //generated
+    }
 }

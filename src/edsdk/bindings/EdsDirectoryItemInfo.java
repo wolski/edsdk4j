@@ -1,5 +1,8 @@
 package edsdk.bindings;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
@@ -33,12 +36,14 @@ public class EdsDirectoryItemInfo extends Structure {
 
     public EdsDirectoryItemInfo() {
         super();
-        initFieldOrder();
+        getFieldOrder();
     }
 
-    protected void initFieldOrder() {
-        setFieldOrder( new String[] { "size", "isFolder", "groupID", "option",
-                                     "szFileName", "format" } );
+    @Override
+    protected List getFieldOrder() {
+        return Arrays.asList( new String[] { "size", "isFolder", "groupID",
+                                            "option", "szFileName", "format" } );
+
     }
 
     /**
@@ -64,7 +69,7 @@ public class EdsDirectoryItemInfo extends Structure {
         }
         this.szFileName = szFileName;
         this.format = format;
-        initFieldOrder();
+        getFieldOrder();
     }
 
     public EdsDirectoryItemInfo( final Pointer pointer ) {
@@ -73,10 +78,11 @@ public class EdsDirectoryItemInfo extends Structure {
     }
 
     public static class ByReference extends EdsDirectoryItemInfo implements Structure.ByReference {
-
-    };
+        //generated
+    }
 
     public static class ByValue extends EdsDirectoryItemInfo implements Structure.ByValue {
+        //generated
+    }
 
-    };
 }
